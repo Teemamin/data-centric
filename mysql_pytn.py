@@ -1,4 +1,5 @@
 import os
+import datetime
 import pymysql
 
 # Get username from Cloud9 workspace
@@ -14,11 +15,13 @@ connection = pymysql.connect(host='localhost',
 
 try:
     # Run a query
-    with connection.cursor() as cursor:
+    with connection.cursor(pymysql.cursors.DictCursor) as cursor: # the (pymsql.cursors.DictCursor) is to return the result of the cursr as dict
         sql = "SELECT * FROM Artist;"
         cursor.execute(sql)
-        result = cursor.fetchall()  # fetchall() is getting the data back
-        print(result)
+        #result = cursor.fetchall()  # fetchall() is getting the data back
+        for row in cursor:
+            print(row)
+ 
 finally:
     # Close the connection, regardless of whether or not the above was successful
     connection.close()
