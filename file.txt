@@ -1,0 +1,67 @@
+mysql> show tables ;
++-------------------+
+| Tables_in_Chinook |
++-------------------+
+| Album             |
+| Artist            |
+| Customer          |
+| Employee          |
+| Genre             |
+| Invoice           |
+| InvoiceLine       |
+| MediaType         |
+| Playlist          |
+| PlaylistTrack     |
+| Track             |
++-------------------+
+11 rows in set (0.00 sec)
+
+mysql> desc Artist ;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| ArtistId | int          | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(120) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> source test.sql
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select count(*) from Track' at line 2
+mysql> source test.sql;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select count(*) from Track' at line 2
+mysql> source test.sql;
+ERROR 1146 (42S02): Table 'Chinook.Artists' doesn't exist
++----------+
+| count(*) |
++----------+
+|     3503 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> source test.sql;
+ERROR 1146 (42S02): Table 'Chinook.Artists' doesn't exist
++----------+
+| count(*) |
++----------+
+|       59 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> source test.sql;
++----------+
+| count(*) |
++----------+
+|       59 |
++----------+
+1 row in set (0.00 sec)
+
++----------+
+| count(*) |
++----------+
+|     3503 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> use  Querying The Database
+ERROR 1049 (42000): Unknown database 'Querying'
+mysql> 
